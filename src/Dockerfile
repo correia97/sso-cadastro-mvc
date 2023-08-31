@@ -13,19 +13,19 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 
-COPY ./src/Cadastro.MVC/Cadastro.MVC.csproj ./Cadastro.MVC/
+COPY ./src/Cadastro.MVC/src/Cadastro.MVC.csproj ./Cadastro.MVC/src/
 COPY ./src/Cadastro.Configuracoes/Cadastro.Configuracoes.csproj ./Cadastro.Configuracoes/
 COPY ./src/Cadastro.Domain/Cadastro.Domain.csproj ./Cadastro.Domain/
 
-RUN dotnet restore ./Cadastro.MVC/Cadastro.MVC.csproj
+RUN dotnet restore ./Cadastro.MVC/src/Cadastro.MVC.csproj
 
-COPY ./src/Cadastro.MVC/ ./Cadastro.MVC/
+COPY ./src/Cadastro.MVC/src/ ./Cadastro.MVC/src/
 COPY ./src/Cadastro.Configuracoes/ ./Cadastro.Configuracoes/
 COPY ./src/Cadastro.Domain/ ./Cadastro.Domain/
-RUN dotnet build ./Cadastro.MVC/Cadastro.MVC.csproj -c Release -o /app/build
+RUN dotnet build ./Cadastro.MVC/src/Cadastro.MVC.csproj -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish ./Cadastro.MVC/Cadastro.MVC.csproj -c Release -o /app/publish
+RUN dotnet publish ./Cadastro.MVC/src/Cadastro.MVC.csproj -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app

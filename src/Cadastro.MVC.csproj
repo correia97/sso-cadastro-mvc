@@ -31,6 +31,6 @@
     <PackageReference Include="Polly.Extensions.Http" Version="3.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Cadastro.Configuracoes\Cadastro.Configuracoes.csproj" />
+    <ProjectReference Include="..\..\Cadastro.Configuracoes\Cadastro.Configuracoes.csproj" />
   </ItemGroup>
 </Project>
