@@ -33,8 +33,8 @@ string serviceVersion = typeof(FuncionarioService).Assembly.GetName().Version?.T
 
 builder.Services.AddCustomOpenTelemetry(serviceName, serviceVersion, builder.Configuration);
 
-var activity = new ActivitySource(serviceName, serviceVersion);
-builder.Services.AddScoped<ActivitySource>(x => activity);
+//var activity = new ActivitySource(serviceName, serviceVersion);
+//builder.Services.AddScoped<ActivitySource>(x => activity);
 
 builder.Services.AddRazorPages();
 
